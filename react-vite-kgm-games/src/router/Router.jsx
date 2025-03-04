@@ -1,11 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom'
+import MainLayout from '../ui/layouts/MainLayout'
 import LottoPage from '../ui/pages/LottoPage'
 
 const routes = [
   {
     path: '/',
-    element: <LottoPage />,
+    element: <MainLayout />,
     loader: () => '로또',
+    children: [
+      {
+        path: '',
+        element: <LottoPage />,
+        loader: () => '로또',
+      },
+    ],
   },
 ]
 
